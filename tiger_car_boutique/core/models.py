@@ -10,4 +10,4 @@ class Vehiculo(models.Model):
     es_nuevo = models.BooleanField()
 
     def __str__(self):
-        return self.vehiculo
+        return (str(self.marca) + ' ' + str(self.modelo))
