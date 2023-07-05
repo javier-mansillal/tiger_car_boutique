@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>agregar vehiculo</h1>
+    <form method="post">
+        {%csrf_token%}
+        <div>
+            <label for="marca">marca:</label>
+            <input type="text" nombre="marca"required>
+        </div>
+        <div>
+            <label for="modelo">modelo:</label>
+            <input type="text" nombre="modelo"required>
+        </div>
+        <div>
+            <label for="año">año:</label>
+            <input type="number" nombre="año"required>
+        </div>
+        <div>
+            <label for="kilometraje">kilometraje:</label>
+            <input type="number" nombre="kilometraje"required>
+        </div>
+        <div>
+            <label for="precio">precio:</label>
+            <input type="number" nombre="precio"required>
+        </div>
+    </form>
+    <a href="{% url 'lista_vehiculo' %}">Volver a la lista de vehiculos</a>
+</body>
+</html>

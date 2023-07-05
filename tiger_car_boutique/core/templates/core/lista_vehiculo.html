@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <h1>Lisa de vehiculos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>marca</th>
+                <th>modelo</th>
+                <th>año</th>
+                <th>kilometraje</th>
+                <th>precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for vehiculo in vehiculos%}
+            <tr>
+                <td>{{vehiculo.marca}}</td>
+                <td>{{vehiculo.modelo}}</td>
+                <td>{{vehiculo.año}}</td>
+                <td>{{vehiculo.kilometraje}}</td>
+                <td>{{vehiculo.precio}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <a href="create/">agregar vehiculo</a>
+<body>
+    
+</body>
+</html>
