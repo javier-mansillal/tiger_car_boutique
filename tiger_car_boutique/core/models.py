@@ -6,7 +6,7 @@ class Vehiculo(models.Model):
     modelo = models.CharField(max_length=100)
     año  = models.PositiveIntegerField()
     kilometraje = models.PositiveIntegerField()
-    precio = models.DecimalField(max_digits=10, decimal_places=2)
+    precio = models.DecimalField(max_digits=20, decimal_places=2)
     es_nuevo = models.BooleanField()
 
     def __str__(self):

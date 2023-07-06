@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% extends 'core/base.html' %}
+{%block content%}
     <h1>Lista de vehículos</h1>
     <table>
         <thead>
             <tr>
-                <th>marca</th>
-                <th>modelo</th>
-                <th>año</th>
-                <th>kilometraje</th>
-                <th>precio</th>
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Año</th>
+                <th>Kilometraje</th>
+                <th>Precio</th>
             </tr>
         </thead>
         <tbody>
@@ -28,8 +23,5 @@
             {%endfor%}
         </tbody>
     </table>
-    <a href="create/">agregar vehiculo</a>
-<body>
-    
-</body>
-</html>
+    <a href="create/">Agregar Vehículo</a>
+{%endblock%}
