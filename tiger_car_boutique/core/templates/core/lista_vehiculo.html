@@ -1,27 +1,44 @@
 {% extends 'core/base.html' %}
+{%load static%}
 {%block content%}
-    <h1>Lista de vehículos</h1>
-    <table>
-        <thead>
-            <tr>
-                <th>Marca</th>
-                <th>Modelo</th>
-                <th>Año</th>
-                <th>Kilometraje</th>
-                <th>Precio</th>
-            </tr>
-        </thead>
-        <tbody>
-            {%for vehiculo in vehiculos%}
-            <tr>
-                <td>{{vehiculo.marca}}</td>
-                <td>{{vehiculo.modelo}}</td>
-                <td>{{vehiculo.año}}</td>
-                <td>{{vehiculo.kilometraje}}</td>
-                <td>{{vehiculo.precio}}</td>
-            </tr>
-            {%endfor%}
-        </tbody>
-    </table>
-    <a href="create/">Agregar Vehículo</a>
+
+<h1>Últimos modelos</h1>
+<div class="container">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-6">
+          {% for vehiculo in vehiculos %}
+          {%if vehiculo.es_nuevo == True%}
+          <div class="col mb-4">
+            <div class="card h-100">
+              <img src="{% static 'core/'|add:vehiculo.marca|add:vehiculo.modelo|cut:" "|add:'.png' %}" alt="Imagen" onerror="this.src='{% static 'core/interrogacion.png' %}'" class="img-fluid carta-imagen">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">{{ vehiculo.precio }} CLP</li>
+              <li class="list-group-item">{{ vehiculo.marca }} {{ vehiculo.modelo}} {{ vehiculo.año}}</li>
+              <li class="list-group-item">{{ vehiculo.kilometraje }} kilómetros</li>
+            </ul>
+            </div>
+          </div>
+          {%endif%}
+          {% endfor %}
+        </div>
+      </div>
+
+<h1> Modelos antiguos </h1>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-6">
+    {% for vehiculo in vehiculos %}
+    {%if vehiculo.es_nuevo == False%}
+    <div class="col mb-4">
+      <div class="card h-100">
+        <img src="{% static 'core/'|add:vehiculo.marca|add:vehiculo.modelo|cut:" "|add:'.png' %}" alt="Imagen" onerror="this.src='{% static 'core/interrogacion.png' %}'" class="img-fluid carta-imagen">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{ vehiculo.precio }} CLP</li>
+          <li class="list-group-item">{{ vehiculo.marca }} {{ vehiculo.modelo}} {{ vehiculo.año}}</li>
+          <li class="list-group-item">{{ vehiculo.kilometraje }} kilómetros</li>
+        </ul>
+      </div>
+    </div>
+    {%endif%}
+    {% endfor %}
+  </div>
+</div>
 {%endblock%}

@@ -14,7 +14,7 @@ def crear_vehiculo(request):
         año= request.POST['año']
         kilometraje= request.POST['kilometraje']
         precio= request.POST['precio']
-        es_nuevo= request.POST['es_nuevo']
+        es_nuevo= request.POST.get('es_nuevo', False) == 'on'
         es_nuevo = True if request.POST.get('es_nuevo') == 'on' else False
         vehiculo= Vehiculo(marca=marca, modelo=modelo, año=año, kilometraje= kilometraje, precio=precio, es_nuevo=es_nuevo)
         vehiculo.save()

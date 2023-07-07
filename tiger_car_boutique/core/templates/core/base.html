@@ -1,3 +1,4 @@
+{%load static%}
 {% load bootstrap5 %}
 {% load bootstrap_icons%}
 <!DOCTYPE html>
@@ -7,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tiger Car Boutique</title>
     {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'core/base.css' %}">
 </head>
 <body>
     {% bootstrap_javascript %}
@@ -19,8 +21,11 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link" href="/api/">API</a>
               <a class="nav-link" href="../admin/">Admin</a>
+                {% if request.user.is_authenticated and request.user.is_staff%}
+                <a class="nav-link" href="/api/">API</a>
+                <a class="nav-link" href="create/">Agregar Vehículo</a>   
+                {% endif %}
             </div>
           </div>
         </div>
