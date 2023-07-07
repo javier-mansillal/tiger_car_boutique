@@ -1,5 +1,6 @@
 {% extends 'core/base.html' %}
     {% block content %}
+    {%if request.user.is_authenticated and request.user.is_staff%}
     <h1>Agregar vehículo</h1>
     <div class="container">
         <div class="row justify-content-center">
@@ -34,6 +35,9 @@
             </form>
           </div>
         </div>
-      </div>      
+      </div>
+      {%else%}
+      <h1>No tienes permiso para agregar nuevos vehiculos.</h1>
+    {%endif%}      
     <a href="{% url 'core:lista_vehiculo' %}">Volver a la lista de vehiculos</a>
 {%endblock%}
